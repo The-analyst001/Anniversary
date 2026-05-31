@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Anniversary 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #fdf6ee;
+    --blush: #f5d6c8;
+    --rose: #e8a598;
+    --dusty-pink: #d4849a;
+    --mauve: #b5687a;
+    --warm-brown: #7a4a3a;
+    --text-dark: #3d2b1f;
+    --text-mid: #6b4c3b;
+    --mint: #b8cfc4;
+    --gold: #c9a86c;
+    --paper: #fef9f2;
+    --tape: rgba(180,160,120,0.35);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--cream);
+    font-family: 'Lato', sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, #fdf0e8 0%, #fae8e4 40%, #f5ddd8 100%);
+  }
+  .hero-subtitle {
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: var(--mauve);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  .hero-title {
+    font-family: 'Caveat', cursive;
+    font-size: clamp(3rem, 12vw, 5rem);
+    font-weight: 700;
+    color: var(--warm-brown);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .hero-title span { color: var(--dusty-pink); }
+  .hero-names {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--mauve);
+    margin-bottom: 1.5rem;
+  }
+  .hero-story {
+    font-family: 'Caveat', cursive;
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    max-width: 290px;
+    line-height: 1.65;
+    background: rgba(255,255,255,0.6);
+    border: 1.5px solid rgba(212,132,154,0.3);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    transform: rotate(-1.5deg);
+    margin-bottom: 0.75rem;
+  }
+  .hero-recap {
+    font-family: 'Caveat', cursive;
+    font-size: 0.85rem;
+    color: var(--mauve);
+    opacity: 0.7;
+    font-style: italic;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: 'Caveat', cursive;
+    font-size: 0.9rem;
+    color: var(--mauve);
+    animation: bounce 2s ease-in-out infinite;
+  }
+  .scroll-hint::after { content: '↓'; font-size: 1.4rem; }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* DIVIDER */
+  .divider {
+    text-align: center;
+    padding: 0.75rem 0;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: var(--rose);
+    letter-spacing: 0.4em;
+  }
+
+  /* MONTH SECTIONS */
+  .month-section {
+    padding: 2.5rem 1.25rem;
+    position: relative;
+  }
+  .month-section:nth-child(even) { background: rgba(245,214,200,0.15); }
+
+  .month-tag {
+    display: inline-block;
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--warm-brown);
+    background: var(--blush);
+    border: 2px solid var(--rose);
+    border-radius: 8px;
+    padding: 0.3rem 1rem;
+    margin-bottom: 1.25rem;
+    transform: rotate(-1deg);
+    box-shadow: 2px 2px 0 rgba(180,100,80,0.15);
+  }
+  .month-tag.teal-tag { background: #e8f4f0; border-color: var(--mint); color: #3a6b5a; }
+  .month-tag.gold-tag { background: #fdf3e3; border-color: var(--gold); color: #7a5a20; }
+
+  /* SCRAPBOOK CARD */
+  .scrap-card {
+    background: var(--paper);
+    border-radius: 4px;
+    padding: 1rem 1rem 1.25rem;
+    margin-bottom: 1rem;
+    position: relative;
+    box-shadow: 2px 3px 12px rgba(100,60,40,0.1);
+  }
+  .scrap-card.tilted-left { transform: rotate(-1deg); }
+  .scrap-card.tilted-right { transform: rotate(0.8deg); }
+  .scrap-card::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 60px;
+    height: 18px;
+    background: var(--tape);
+    border-radius: 2px;
+  }
+  .scrap-card.tape-corner::before { top: -8px; left: 20px; transform: none; }
+  .scrap-card p {
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-mid);
+    margin-bottom: 0.5rem;
+  }
+  .scrap-card p:last-child { margin-bottom: 0; }
+  .scrap-card p strong { color: var(--warm-brown); font-weight: 700; }
+
+  /* PHOTOS */
+  .photo-grid-1 { margin-bottom: 0.75rem; }
+  .photo-grid-1 img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    object-fit: cover;
+    max-height: 280px;
+  }
+  .photo-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .photo-grid-2 img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    object-fit: cover;
+    height: 140px;
+  }
+  .photo-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .photo-grid-3 img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    object-fit: cover;
+    height: 130px;
+  }
+  .photo-grid-3 img:first-child {
+    grid-column: 1 / -1;
+    height: 180px;
+  }
+
+  /* LOVE NOTE */
+  .love-note {
+    background: linear-gradient(135deg, #fff9f5, #fdf3ec);
+    border-left: 3px solid var(--dusty-pink);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    font-family: 'Caveat', cursive;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--text-mid);
+  }
+  .love-note.green-note {
+    border-left-color: var(--mint);
+    background: linear-gradient(135deg, #f5faf8, #ebf5f0);
+  }
+  .love-note p { margin-bottom: 0.4rem; }
+  .love-note p:last-child { margin-bottom: 0; }
+  .love-note strong { color: var(--warm-brown); font-weight: 700; }
+
+  /* PILLS */
+  .highlight-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0; }
+  .pill {
+    font-family: 'Caveat', cursive;
+    font-size: 0.95rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: var(--blush);
+    color: var(--warm-brown);
+    border: 1px solid var(--rose);
+  }
+
+  /* VIDEO LINK SECTION */
+  .video-link-section {
+    padding: 2.5rem 1.25rem;
+    background: linear-gradient(160deg, #fdf0e8, #fae4e0);
+    text-align: center;
+  }
+  .video-link-section h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    color: var(--warm-brown);
+    margin-bottom: 0.5rem;
+  }
+  .video-link-section p {
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+    color: var(--text-mid);
+    margin-bottom: 1.25rem;
+  }
+  .video-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--dusty-pink);
+    color: white;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(180,100,120,0.3);
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(160deg, #fdf0e8, #f5ddd8);
+  }
+  .footer h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--warm-brown);
+    margin-bottom: 0.5rem;
+  }
+  .footer .hearts { font-size: 2rem; margin-top: 1rem; letter-spacing: 0.3em; }
+
+  /* FADE IN */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-subtitle">A STORY FOR OUR FURTURE SELVES...</p>
+  <h1 class="hero-title">Happy<br><span>Anniversary</span><br>to us 🤍</h1>
+  <p class="hero-names">NKWA &amp; KCE PANCAKES</p>
+  <div class="hero-story">
+    <p>Everything started with pancakes delivery. I can still remember how close I was to canceling my order that day ... -- Guess it would've been the greatest lost of my entire life.</p>
+  </div>
+  <div class="hero-story" style="margin-top:0.75rem;">
+    <p>Sooo, if I was to give a title to each of the months we spent together, this is how it will go ...</p>
+  </div>
+  <p class="hero-recap">#pov This is a huge RECAP</p>
+  <div class="scroll-hint">scroll down</div>
+</section>
+
+<!-- APRIL 2025 -->
+<section class="month-section fade-in">
+  <div class="month-tag">Where it all began: April 2025</div>
+  <div class="scrap-card tape-corner tilted-left">
+    <div class="photo-grid-3">
+      <img src="https://lh3.googleusercontent.com/d/1RWNAGlwQW8v5XFNCe0oro2D7QhMoYZ_i" alt="April 2025 photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1eIM34YsK5YiH8BocLK3dniH0IyV-fzvV" alt="April 2025 photo 2" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1LiQtkcU2UnkPnB9RKqEtxHOskQm-U2Gq" alt="April 2025 photo 3" loading="lazy">
+    </div>
+    <p>"Temple Run", this is how we called this day. A lot of surprises, specially in the taxi we took -- why is it taking so long to get there? -- that was the only thought in my mind ...</p>
+    <p>But yeah, at the end we had a great time, -- you can see it from the smiles :)
+Even though I don't want to mention the bike we took while coming back cause it is GOD that took us back !!!</p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- MAY 2025 -->
+<section class="month-section fade-in">
+  <div class="month-tag teal-tag">From friends to lovers: may 2025</div>
+  <div class="scrap-card tilted-right">
+    <div class="photo-grid-2">
+      <img src="https://lh3.googleusercontent.com/d/1QDe0b4DG4UM3Ubi4srjhPzOjH_m7KLP7" alt="May 2025 photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1WNCZRUB2Ic31mf0H07jL65F8lezim3ug" alt="May 2025 photo 2" loading="lazy">
+    </div>
+    <p>Okay, Okay, fast forwarding some days and night, here comes the dayyyyyyyyyy....</p>
+    <p>"boum boum boum boum" -- I can still remember how my heart was pounding before those words left my mouth...</p>
+    <p>To be honest I didn't know it requires that much courage to tell, how much you love someone. Whereas I did rehearse more than once, but it all vanished in front of you.</p>
+    <p>That awkward silence..., then "Why do you want me to be your partner" her question took me by surprise. But yet the answer was obvious to me: "Because I Love You, I enjoy been around you, because I see a part of myself in you".</p>
+    <p>Afterwards I got my yessssss. I was as happy as someone who won the lottery. Cause that day, she said yes to me, to Ulrich... And from that day we never stop loving each other more and even more.</p>
+  </div>
+  <div class="highlight-row">
+    <span class="pill">The late night calls</span>
+    <span class="pill">Text messages</span>
+    <span class="pill">Face time ...</span>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- JUNE 2025 -->
+<section class="month-section fade-in">
+  <div class="month-tag">1st month anniversarry - june 2025</div>
+  <div class="scrap-card tape-corner">
+    <div class="photo-grid-3">
+      <img src="https://lh3.googleusercontent.com/d/1Xr_tnNP6Zl_pFTj3i-OR0ieWG0bJ5qOY" alt="June 2025 photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1aoe6bShwxSloJYDPM4ijI6RbJV2GsXbf" alt="June 2025 photo 2" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1KEflhd3onE4CCRygcnwuCDk5FxHBRsln" alt="June 2025 photo 3" loading="lazy">
+    </div>
+    <p>...Quality time, genuine intentions...</p>
+    <p>And before we notice it, one month has passed already...</p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- JULY 2025 -->
+<section class="month-section fade-in">
+  <div class="month-tag gold-tag">1st gala night: July 2025</div>
+  <div class="scrap-card tilted-left">
+    <div class="photo-grid-3">
+      <img src="https://lh3.googleusercontent.com/d/1HNvYL4AxIwHbwYUn81Me2eWQmf4G0msr" alt="Gala night photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1I6CO_cJmhJOvWPKez1HXG_2K4fSj8X6j" alt="Gala night photo 2" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1IF4YoO9SGpttBzGGUh9sAr81CTG9EjlH" alt="Gala night photo 3" loading="lazy">
+    </div>
+    <p>'I wanted it to be perfect' -- when You told me the faculty was organising an event, I wanted you to become my "cendrilion".</p>
+    <p>And yes, you were the most beautiful and astonishing lady during that night. We had a great time.</p>
+    <p>Even though we had exams it didn't stop us from enjoying ourselves to the fullest. Can't wait for the next gala. I already have an outfit I want to try even :)</p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- AUGUST 2025 -->
+<section class="month-section fade-in">
+  <div class="month-tag teal-tag">Cinema date: August 2025</div>
+  <div class="scrap-card tilted-right">
+    <div class="photo-grid-3">
+      <img src="https://lh3.googleusercontent.com/d/1akkkybcAZS9GNmiMrNc5Dq7cgrMkXzam" alt="Cinema date photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1pDVHu9BqQvUgxVXmxup53FHLcjWvRsB0" alt="Cinema date photo 2" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1v75RViHgAyTRdaO_kc_p-D8E6TeHlNLr" alt="Cinema date photo 3" loading="lazy">
+    </div>
+    <p>To be honest, it was sooo awkward...
+Just because we made some weeks without seeing each other I didn't know how to act around you any more 😅.</p>
+    <p>But yeah, that awkwardness quickly faded away...</p>
+    <p>And guess what ????</p>
+    <p>That kiss, our first outdoor kiss -- I was so tensed I didn't enjoy it to the fullest 😩. I still regret not staying longer ....</p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- SEPTEMBER 2025 -->
+<section class="month-section fade-in">
+  <div class="month-tag">Depature - LDR begins: September 2025</div>
+  <div class="scrap-card tape-corner tilted-left">
+    <div class="photo-grid-2">
+      <img src="https://lh3.googleusercontent.com/d/1qVS0AOD-hon36C7n5xpMTjCuIYmP53Y2" alt="Departure photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1zjyOB2S6mHMAIrmgkyCsji9uE4_HsrZb" alt="Departure photo 2" loading="lazy">
+    </div>
+    <p>And before we realize it, I obtained my Visa and it was time for good byes ...</p>
+    <p>Back then I was too excited by my scholarship, and did not fully understand how difficult it would be to live far from you.</p>
+    <p>I would've hugged you longer, tighter I shouldn't have left you go even ....
+The gift you offered me made the separation less painful. I felt so special. Thanks again for the gift my love.</p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- OCTOBER 2025 -->
+<section class="month-section fade-in">
+  <div class="month-tag gold-tag">From PAR to LDR: October 2025</div>
+  <div class="scrap-card tilted-right">
+    <div class="photo-grid-3">
+      <img src="https://lh3.googleusercontent.com/d/1kPv-_z75FWcQdRV9moKcaJf9gOb0yRfK" alt="October 2025 photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1eNzam3Mjh-qZMjjThXcWs4u991lYZbnD" alt="October 2025 photo 2" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1fxItakif-_I4tR442y5QDtfFaQ237G0w" alt="October 2025 photo 3" loading="lazy">
+    </div>
+    <p>Video callllllssssss....
+From this moment on my laptop became my best friend. I realized that loving someone goes beyond physicals — it is quality time, it lies in random simple things (a quick picture of my day, looking at you while you study, showing gratitude), and sacrifice.</p>
+    <p>Yh you saw it right, she is pissed off. I don't remember what I did, but yeah I had done it again 😅.
+It was not always in blue...</p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- NOVEMBER 2025 -->
+<section class="month-section fade-in">
+  <div class="month-tag teal-tag">LDR-first month: November 2025</div>
+  <div class="scrap-card tape-corner">
+    <div class="photo-grid-2">
+      <img src="https://lh3.googleusercontent.com/d/16iHZ6AgUluBqnTgC6Z0OgEF-4umryqgy" alt="LDR November photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/11xTro1zF-cC4MOo0_O3ava2tOcBWseuU" alt="LDR November photo 2" loading="lazy">
+    </div>
+    <p>It was difficult at first but yeah, again we adapted -- as the great mathematicians we are 😌. And things felt better again. The love kept growing, and being around each other became natural ...</p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- DECEMBER 2025 -->
+<section class="month-section fade-in">
+  <div class="month-tag">1st crossover: December 2025</div>
+  <div class="scrap-card tilted-left">
+    <div class="photo-grid-2">
+      <img src="https://lh3.googleusercontent.com/d/1U9A0PNdAl_F9njkmg97-SbEHKvqauOqQ" alt="December 2025 photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/18e-YFAMyHrZtKtCU2_LBtSoQS0KtZ4tH" alt="December 2025 photo 2" loading="lazy">
+    </div>
+    <p>Here came the new year 2026. And also the month you took the airplane for the first time. I can still remember how worried I was... But Thanks to GOD everything went well and we spent an amazing Christmas.</p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- JANUARY 2026 -->
+<section class="month-section fade-in">
+  <div class="month-tag gold-tag">January 2026: Our Birthday month</div>
+  <div class="scrap-card tape-corner tilted-right">
+    <div class="photo-grid-2">
+      <img src="https://lh3.googleusercontent.com/d/1YctqwlZ4XBcYjzaCnI9MRAJM87FZ51Fi" alt="Birthday month photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1GcyxZ4cyz2ns4lrzOpc_jFrxz8OYk6u1" alt="Birthday month photo 2" loading="lazy">
+    </div>
+    <p>This month was rich in emotions, both for me as for you I guess...
+First, thanks again for being in my life. You made me feel chosen, you made me feel special. And I can proudly say that you made that day the best ever. Your words made me tear up like a baby.</p>
+    <p>I am glad to have a woman like you in my life, and as a partner upon all...</p>
+    <p>Then your day came. I tried not only to reciprocate how you made me feel -- even though not sure I could -- but also to show you how you count and mean to me.</p>
+    <p>It was an honor and a pleasure seeing you turn to your new age.</p>
+    <p>#Pov I didn't know you would love the flowers that much. I was so glad you loved it.</p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- FEBRUARY 2026 -->
+<section class="month-section fade-in">
+  <div class="month-tag">febuary 2026: the month of love ....</div>
+  <div class="scrap-card tilted-left">
+    <div class="photo-grid-3">
+      <img src="https://lh3.googleusercontent.com/d/1L6oWlkQSskZlWYmpR1gMdumiW4p4suUn" alt="Month of love photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/143FWA51LeLd4NdBpiudMKKVbmKjDh6Wx" alt="Month of love photo 2" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1-PFYc7rE6PqFttkT8TPLR4FgvNHlcLGp" alt="Month of love photo 3" loading="lazy">
+    </div>
+    <p>No one told me of how difficult it could be to offer a gift to someone you love...</p>
+    <p>But yeah, I wanted something that she could hold on to when she missed me. I even found a way to make it have my smell. I am still proud of that actually 😂</p>
+    <p>When I saw your tears, I felt bad for a moment but then it only showed me how deeply you appreciated the gift, then I was relieved and proud at the same time.</p>
+    <p>I am actually glad to see how close you are to the teddy. I am sometimes even jealous 😅</p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- MARCH 2026 -->
+<section class="month-section fade-in">
+  <div class="month-tag teal-tag">March 2026: chiling in my ldr</div>
+  <div class="scrap-card tape-corner tilted-right">
+    <div class="photo-grid-2">
+      <img src="https://lh3.googleusercontent.com/d/1Q9YxMynqmMX7tSAmLxtKF_C2jujk2AQt" alt="Chilling LDR photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1mSoL9UbV75bAszIF30XA1WT1sxidK0gl" alt="Chilling LDR photo 2" loading="lazy">
+    </div>
+    <p>Ohh yess, I can never be down when my girl is around, cause she got the vibe for two !!!! -- and sometimes for five even 😄</p>
+    <p>Your energy, your positivity is a trait of your personality I fell for. Thank you for radiating this much. You are my sunlight and light I am willing to preserve and fight for every single day.</p>
+    <p>Thank you for loving me babes.</p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- APRIL 2026 -->
+<section class="month-section fade-in">
+  <div class="month-tag">Doubts and uncertainty: April 2026</div>
+  <div class="scrap-card tilted-left">
+    <div class="photo-grid-2">
+      <img src="https://lh3.googleusercontent.com/d/1C7iXMmkpnNqkybMLcicrBGSDlFhmk6Fz" alt="Doubts April 2026 photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1tcKf8U8dJbhUHDNyT6cyp0ifMy9hV1xc" alt="Doubts April 2026 photo 2" loading="lazy">
+    </div>
+    <p>It is only in movies that every thing goes as planned.</p>
+    <p>We had our doubts, I had uncertainties, I was disoriented but yet she gave me direction to follow.</p>
+    <p>You reassured me, you calmed me when my thoughts were scattered.</p>
+    <p>Each time I look at you, I feel safe, I feel at peace. And each time you look at me I feel love, I feel chosen, I feel invincible.</p>
+    <p>Knowing I am your man motivates me and makes me more responsible.
+When You call me your man I simply feel <strong>UNSTOPABLE</strong>.</p>
+    <p>It's not a feeling any more but a conviction. I am in love with <strong>YOU EPOH.</strong></p>
+  </div>
+</section>
+
+<div class="divider">· · · ✦ · · ·</div>
+
+<!-- MAY 2026 -->
+<section class="month-section fade-in">
+  <div class="month-tag gold-tag">May 2026: See you next year...</div>
+  <div class="scrap-card tape-corner">
+    <div class="photo-grid-2">
+      <img src="https://lh3.googleusercontent.com/d/1tCrpcniOR-Kdyfa_kc3NVZ85JTUhyTkE" alt="See you next year photo 1" loading="lazy">
+      <img src="https://lh3.googleusercontent.com/d/1fJgSbkKA273VmF_aMDYotUrgkVONmX0T" alt="See you next year photo 2" loading="lazy">
+    </div>
+    <p>I guess it was the most profitable purchase I made back then -- The pancakes I mean, you forgot ?? 🥹</p>
+    <p>See you next time for the 2027 edition</p>
+  </div>
+</section>
+
+<!-- VIDEO LINK -->
+<section class="video-link-section fade-in">
+  <h2>Click me please</h2>
+  <p>There is one last request here</p>
+  <a class="video-link-btn" href="https://drive.google.com/file/d/1IkhihXgKZ4L3IgZT8J-Uo5-GfdOevC_M/view?usp=drive_link" target="_blank" rel="noopener">
+    🔗 Click me please
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer fade-in">
+  <h2>happy anniversary to us milo</h2>
+  <div class="hearts">💕 🌸 💕</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
